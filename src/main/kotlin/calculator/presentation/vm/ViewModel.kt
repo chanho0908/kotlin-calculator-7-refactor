@@ -8,14 +8,14 @@ import calculator.presentation.vm.model.CalculatorState
 class ViewModel(
     private val checkValidationUseCase: CheckValidationUseCase
 ) {
-    private var _uiState = CalculatorState.create()
+    private var _state = CalculatorState.create()
     val state: CalculatorState
-        get() = _uiState
+        get() = _state
 
     fun onCompleteUserInput(input: String) {
         val result = checkValidationUseCase(input)
         val sum = result.sumOf { it.toInt() }
         val newEvent = UiEvent.CalculateComplete(OutPut.resultFormat(sum))
-        _uiState = _uiState.copy(uiEvent = newEvent)
+        _state = _state.copy(uiEvent = newEvent)
     }
 }

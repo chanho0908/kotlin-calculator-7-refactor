@@ -1,6 +1,8 @@
 package calculator.presentation.event
 
-sealed class UiEvent {
-    data class UserAccess(val msg: String) : UiEvent()
-    data class CalculateComplete(val msg: String) : UiEvent()
+sealed interface UiEvent {
+    val msg: String
+
+    data class UserAccess(override val msg: String) : UiEvent
+    data class CalculateComplete(override val msg: String) : UiEvent
 }
