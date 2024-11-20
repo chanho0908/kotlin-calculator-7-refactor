@@ -1,5 +1,8 @@
 package calculator
 
+import calculator.app.DependencyInjector
+
 fun main() {
-    // TODO: 프로그램 구현
+    val di = DependencyInjector()
+    di.injectViewController()
 }
